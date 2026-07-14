@@ -1,93 +1,157 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
-  <title id="title">Mohammadhassan Amini animated Linux terminal</title>
-  <desc id="desc">An animated terminal with ASCII Tux and commands describing a Python and Go developer and DevOps engineer.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Mohammadhassan Amini - animated GNU/Linux Bash terminal</title>
+  <desc id="desc">A realistic animated Bash session running fastfetch with Linux ASCII art, engineering tools, identity, and a blinking shell prompt.</desc>
+
   <defs>
-    <linearGradient id="shell" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#07111f"/>
-      <stop offset="0.55" stop-color="#0b1728"/>
-      <stop offset="1" stop-color="#06101a"/>
+    <linearGradient id="terminalBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1018"/>
+      <stop offset="1" stop-color="#070b11"/>
     </linearGradient>
-    <linearGradient id="bar" x1="0" x2="1">
-      <stop stop-color="#172033"/>
-      <stop offset="1" stop-color="#111827"/>
+    <linearGradient id="titleBg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#202731"/>
+      <stop offset="1" stop-color="#171c24"/>
     </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
+    <linearGradient id="tmuxBg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22c55e"/>
+      <stop offset="0.18" stop-color="#16a34a"/>
+      <stop offset="0.181" stop-color="#18212b"/>
+      <stop offset="1" stop-color="#111820"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+    <filter id="cursorGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <clipPath id="line1"><rect x="480" y="98" height="56"><animate attributeName="width" values="0;0;650;650;0" keyTimes="0;0.04;0.18;0.98;1" dur="12s" repeatCount="indefinite"/></rect></clipPath>
-    <clipPath id="line2"><rect x="480" y="153" height="56"><animate attributeName="width" values="0;0;650;650;0" keyTimes="0;0.20;0.36;0.98;1" dur="12s" repeatCount="indefinite"/></rect></clipPath>
-    <clipPath id="line3"><rect x="480" y="208" height="56"><animate attributeName="width" values="0;0;650;650;0" keyTimes="0;0.38;0.54;0.98;1" dur="12s" repeatCount="indefinite"/></rect></clipPath>
-    <clipPath id="line4"><rect x="480" y="263" height="56"><animate attributeName="width" values="0;0;650;650;0" keyTimes="0;0.56;0.78;0.98;1" dur="12s" repeatCount="indefinite"/></rect></clipPath>
+
+    <clipPath id="typeFastfetch">
+      <rect x="39" y="71" height="28">
+        <animate attributeName="width" values="0;0;390;390;0" keyTimes="0;0.02;0.12;0.97;1" dur="14s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="typeIdentity">
+      <rect x="39" y="426" height="27">
+        <animate attributeName="width" values="0;0;360;360;0" keyTimes="0;0.42;0.53;0.97;1" dur="14s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="typeRole">
+      <rect x="39" y="497" height="27">
+        <animate attributeName="width" values="0;0;420;420;0" keyTimes="0;0.61;0.74;0.97;1" dur="14s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+
     <style>
-      .mono { font-family: "Cascadia Code", "Fira Code", Consolas, monospace; }
-      .dim { fill: #64748b; }
-      .cyan { fill: #22d3ee; }
+      .mono { font-family: "Cascadia Mono", "Cascadia Code", "Fira Code", "DejaVu Sans Mono", Consolas, monospace; }
+      .text { fill: #d8dee9; }
+      .muted { fill: #64748b; }
       .green { fill: #4ade80; }
-      .white { fill: #e2e8f0; }
-      .node { fill: #0f1d2d; stroke: #334155; stroke-width: 2; }
-      .nodeText { font: 700 14px "Cascadia Code", Consolas, monospace; fill: #cbd5e1; text-anchor: middle; }
-      @keyframes blink { 0%,45% { opacity:1 } 46%,100% { opacity:0 } }
-      @keyframes pulse { 0%,100% { opacity:.45 } 50% { opacity:1 } }
-      .cursor { animation: blink 1s steps(1) infinite; }
-      .pulse { animation: pulse 2.4s ease-in-out infinite; }
+      .cyan { fill: #22d3ee; }
+      .blue { fill: #60a5fa; }
+      .yellow { fill: #facc15; }
+      .promptUser { fill: #4ade80; font-weight: 700; }
+      .promptHost { fill: #22d3ee; font-weight: 700; }
+      .promptPath { fill: #60a5fa; font-weight: 700; }
+      .label { fill: #22d3ee; font-weight: 700; }
+      @keyframes blink { 0%, 46% { opacity: 1; } 47%, 100% { opacity: 0; } }
+      @keyframes statusPulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+      .cursor { animation: blink 1.05s steps(1) infinite; }
+      .status { animation: statusPulse 2.6s ease-in-out infinite; }
     </style>
   </defs>
 
-  <rect x="8" y="8" width="1184" height="504" rx="18" fill="#020617" opacity=".35" filter="url(#glow)"/>
-  <rect x="10" y="10" width="1180" height="500" rx="16" fill="url(#shell)" stroke="#1e293b" stroke-width="2"/>
-  <path d="M26 10h1148a16 16 0 0 1 16 16v42H10V26A16 16 0 0 1 26 10z" fill="url(#bar)"/>
-  <circle cx="42" cy="39" r="7" fill="#ff5f57"/>
-  <circle cx="66" cy="39" r="7" fill="#febc2e"/>
-  <circle cx="90" cy="39" r="7" fill="#28c840"/>
-  <text x="600" y="45" class="mono dim" font-size="15" text-anchor="middle">mohammadhassan@linux: ~/platform-engineering</text>
+  <rect x="10" y="10" width="1180" height="600" rx="13" fill="url(#terminalBg)" stroke="#2a3441" stroke-width="2" filter="url(#shadow)"/>
+  <path d="M23 10h1154a13 13 0 0 1 13 13v35H10V23A13 13 0 0 1 23 10z" fill="url(#titleBg)"/>
 
-  <g transform="translate(56 92)">
-    <animateTransform attributeName="transform" type="translate" values="56 92;56 86;56 92" dur="3.2s" repeatCount="indefinite"/>
-    <text class="mono white" font-size="22" xml:space="preserve">
-      <tspan x="60" y="0">         .--.</tspan>
-      <tspan x="60" y="30">        |o_o |</tspan>
-      <tspan x="60" y="60">        |:_/ |</tspan>
-      <tspan x="60" y="90">       //   \ \</tspan>
-      <tspan x="60" y="120">      (|     | )</tspan>
-      <tspan x="60" y="150">     /'\_   _/`\</tspan>
-      <tspan x="60" y="180">     \___)=(___/</tspan>
+  <circle cx="37" cy="34" r="6.5" fill="#ff5f57"/>
+  <circle cx="60" cy="34" r="6.5" fill="#febc2e"/>
+  <circle cx="83" cy="34" r="6.5" fill="#28c840"/>
+  <rect x="456" y="18" width="288" height="31" rx="7" fill="#0d1219" stroke="#303a46"/>
+  <text x="600" y="39" class="mono text" font-size="14" text-anchor="middle">mohammadhassan@linux: ~</text>
+  <text x="1160" y="39" class="mono muted" font-size="13" text-anchor="end">bash</text>
+
+  <g class="mono" font-size="17" clip-path="url(#typeFastfetch)">
+    <text x="39" y="91">
+      <tspan class="promptUser">mohammadhassan</tspan><tspan class="muted">@</tspan><tspan class="promptHost">linux</tspan><tspan class="muted">:</tspan><tspan class="promptPath">~</tspan><tspan class="text">$ fastfetch</tspan>
     </text>
-    <text x="160" y="222" class="mono cyan pulse" font-size="15" text-anchor="middle">LINUX // AUTOMATION // SRE</text>
   </g>
 
-  <g class="mono" font-size="21">
-    <g clip-path="url(#line1)">
-      <text x="480" y="120"><tspan class="green">aminio9@github</tspan><tspan class="dim">:</tspan><tspan class="cyan">~</tspan><tspan class="white">$ whoami</tspan></text>
-      <text x="480" y="151" class="white" font-size="17">Mohammadhassan Amini // DevOps · SRE · Software Engineer</text>
-    </g>
-    <g clip-path="url(#line2)">
-      <text x="480" y="175"><tspan class="green">aminio9@github</tspan><tspan class="dim">:</tspan><tspan class="cyan">~</tspan><tspan class="white">$ cat stack.txt</tspan></text>
-      <text x="480" y="206" class="white" font-size="17">Python · Go · Bash · Docker · Kubernetes · Ansible</text>
-    </g>
-    <g clip-path="url(#line3)">
-      <text x="480" y="230"><tspan class="green">aminio9@github</tspan><tspan class="dim">:</tspan><tspan class="cyan">~</tspan><tspan class="white">$ ./deploy --safe --observable</tspan></text>
-      <text x="480" y="261" class="white" font-size="17">pipeline: lint → test → build → ship → measure</text>
-    </g>
-    <g clip-path="url(#line4)">
-      <text x="480" y="285"><tspan class="green">aminio9@github</tspan><tspan class="dim">:</tspan><tspan class="cyan">~</tspan><tspan class="white">$ echo $MISSION</tspan></text>
-      <text x="480" y="316" class="white" font-size="17">Reliable systems. Reproducible delivery. Calm operations.</text>
-    </g>
-    <rect x="1127" y="297" width="11" height="22" rx="1" class="green cursor"/>
+  <g class="mono" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.12;0.16;0.97;1" dur="14s" repeatCount="indefinite"/>
+
+    <text x="54" y="132" class="green" font-size="15" xml:space="preserve">
+      <tspan x="54" dy="0">          _nnnn_</tspan>
+      <tspan x="54" dy="19">         dGGGGMMb</tspan>
+      <tspan x="54" dy="19">        @p~qp~~qMb</tspan>
+      <tspan x="54" dy="19">        M|@||@) M|</tspan>
+      <tspan x="54" dy="19">        @,----.JM|</tspan>
+      <tspan x="54" dy="19">       JS^\__/  qKL</tspan>
+      <tspan x="54" dy="19">      dZP        qKRb</tspan>
+      <tspan x="54" dy="19">     dZP          qKKb</tspan>
+      <tspan x="54" dy="19">    fZP            SMMb</tspan>
+      <tspan x="54" dy="19">    HZM            MMMM</tspan>
+      <tspan x="54" dy="19">    FqM            MMMM</tspan>
+      <tspan x="54" dy="19">  __| ".        |\dS"qML</tspan>
+      <tspan x="54" dy="19">  |    `.       | `' \Zq</tspan>
+      <tspan x="54" dy="19"> _)      \.___.,|     .'</tspan>
+      <tspan x="54" dy="19"> \____   )MMMMMM|   .'</tspan>
+      <tspan x="54" dy="19">      `-'       `--'</tspan>
+    </text>
+
+    <text x="430" y="132" font-size="16">
+      <tspan class="promptUser" font-size="19">mohammadhassan</tspan><tspan class="muted" font-size="19">@</tspan><tspan class="promptHost" font-size="19">linux</tspan>
+      <tspan x="430" dy="24" class="muted">----------------------</tspan>
+      <tspan x="430" dy="25" class="label">OS</tspan><tspan class="muted">: </tspan><tspan class="text">GNU/Linux x86_64</tspan>
+      <tspan x="430" dy="25" class="label">Host</tspan><tspan class="muted">: </tspan><tspan class="text">Linux Workstation</tspan>
+      <tspan x="430" dy="25" class="label">Kernel</tspan><tspan class="muted">: </tspan><tspan class="text">Linux 6.x</tspan>
+      <tspan x="430" dy="25" class="label">Shell</tspan><tspan class="muted">: </tspan><tspan class="text">bash</tspan>
+      <tspan x="430" dy="25" class="label">Terminal</tspan><tspan class="muted">: </tspan><tspan class="text">tmux-256color</tspan>
+      <tspan x="430" dy="25" class="label">Languages</tspan><tspan class="muted">: </tspan><tspan class="text">Python, Go, Bash</tspan>
+      <tspan x="430" dy="25" class="label">Containers</tspan><tspan class="muted">: </tspan><tspan class="text">Docker, Kubernetes</tspan>
+      <tspan x="430" dy="25" class="label">Automation</tspan><tspan class="muted">: </tspan><tspan class="text">Ansible, GitLab CI/CD</tspan>
+      <tspan x="430" dy="25" class="label">Monitoring</tspan><tspan class="muted">: </tspan><tspan class="text">Prometheus, Grafana</tspan>
+      <tspan x="430" dy="25" class="label">Uptime</tspan><tspan class="muted">: </tspan><tspan class="green">always learning</tspan>
+      <tspan x="430" dy="30" fill="#111827">●</tspan><tspan fill="#ef4444">●</tspan><tspan fill="#f59e0b">●</tspan><tspan fill="#facc15">●</tspan><tspan fill="#22c55e">●</tspan><tspan fill="#06b6d4">●</tspan><tspan fill="#3b82f6">●</tspan><tspan fill="#a855f7">●</tspan>
+    </text>
   </g>
 
-  <g transform="translate(0 3)">
-    <path d="M105 412H1095" fill="none" stroke="#1e3a4a" stroke-width="3" stroke-dasharray="7 9"/>
-    <g><rect class="node" x="80" y="385" width="150" height="54" rx="10"/><text class="nodeText" x="155" y="417">CODE</text></g>
-    <g><rect class="node" x="302" y="385" width="150" height="54" rx="10"/><text class="nodeText" x="377" y="417">TEST</text></g>
-    <g><rect class="node" x="524" y="385" width="150" height="54" rx="10"/><text class="nodeText" x="599" y="417">IMAGE</text></g>
-    <g><rect class="node" x="746" y="385" width="150" height="54" rx="10"/><text class="nodeText" x="821" y="417">CLUSTER</text></g>
-    <g><rect class="node" x="968" y="385" width="150" height="54" rx="10"/><text class="nodeText" x="1043" y="417">OBSERVE</text></g>
-    <circle r="7" fill="#22d3ee" filter="url(#glow)">
-      <animateMotion dur="5s" repeatCount="indefinite" path="M105 412H1095"/>
-    </circle>
+  <g class="mono" font-size="16" clip-path="url(#typeIdentity)">
+    <text x="39" y="446">
+      <tspan class="promptUser">mohammadhassan</tspan><tspan class="muted">@</tspan><tspan class="promptHost">linux</tspan><tspan class="muted">:</tspan><tspan class="promptPath">~</tspan><tspan class="text">$ id -un &amp;&amp; pwd</tspan>
+    </text>
+  </g>
+  <g class="mono" font-size="15" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.53;0.56;0.97;1" dur="14s" repeatCount="indefinite"/>
+    <text x="39" y="470" class="text">mohammadhassan</text>
+    <text x="39" y="490" class="blue">/home/mohammadhassan/platform-engineering</text>
   </g>
 
-  <text x="58" y="480" class="mono dim" font-size="14">uptime: learning continuously</text>
-  <text x="1142" y="480" class="mono green pulse" font-size="14" text-anchor="end">● systems operational</text>
+  <g class="mono" font-size="16" clip-path="url(#typeRole)">
+    <text x="39" y="517">
+      <tspan class="promptUser">mohammadhassan</tspan><tspan class="muted">@</tspan><tspan class="promptHost">linux</tspan><tspan class="muted">:</tspan><tspan class="promptPath">~</tspan><tspan class="text">$ printf '%s\n' "$ROLE"</tspan>
+    </text>
+  </g>
+  <g class="mono" font-size="15" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.74;0.77;0.97;1" dur="14s" repeatCount="indefinite"/>
+    <text x="39" y="542" class="text">DevOps Engineer | SRE | Python + Go Developer</text>
+  </g>
+
+  <g class="mono" font-size="16" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.77;0.80;0.97;1" dur="14s" repeatCount="indefinite"/>
+    <text x="39" y="566">
+      <tspan class="promptUser">mohammadhassan</tspan><tspan class="muted">@</tspan><tspan class="promptHost">linux</tspan><tspan class="muted">:</tspan><tspan class="promptPath">~</tspan><tspan class="text">$ </tspan>
+    </text>
+    <rect x="283" y="550" width="9" height="19" rx="1" class="green cursor" filter="url(#cursorGlow)"/>
+  </g>
+
+  <rect x="11" y="578" width="1178" height="31" rx="0 0 11 11" fill="url(#tmuxBg)"/>
+  <text x="28" y="599" class="mono" font-size="14" font-weight="700" fill="#052e16">[0] bash*</text>
+  <text x="225" y="599" class="mono text" font-size="13">mohammadhassan@linux:~</text>
+  <text x="920" y="599" class="mono muted" font-size="13">UTF-8</text>
+  <text x="1160" y="599" class="mono green status" font-size="13" text-anchor="end">● online</text>
+
+  <rect x="11" y="58" width="1178" height="1" fill="#334155" opacity=".45"/>
+  <rect x="11" y="60" width="1178" height="2" fill="#22d3ee" opacity=".045">
+    <animate attributeName="y" values="60;574;60" dur="8s" repeatCount="indefinite"/>
+  </rect>
 </svg>
