@@ -25,6 +25,11 @@ jobs:
           test -s assets/terminal.svg
           grep -q 'github.com/aminio9' README.md
           grep -q 'assets/terminal.svg' README.md
+          grep -q '/gh-pages/github-contribution-grid-snake.svg' README.md
+          if grep -q 'github-readme-stats.vercel.app' README.md; then
+            echo 'README uses the rate-limited public github-readme-stats endpoint.' >&2
+            exit 1
+          fi
 
       - name: Parse animated terminal SVG
         shell: python

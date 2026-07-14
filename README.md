@@ -38,7 +38,7 @@ I work where **software engineering meets infrastructure**: packaging services, 
 | Runtime & Code | Platform & Delivery | Reliability & Traffic |
 |:---:|:---:|:---:|
 | Python · Go · Bash | Linux · Git · GitLab CI/CD | Prometheus · Grafana · Loki |
-| FastAPI · REST APIs | Docker · Compose · Swarm | Traefik · Nginx · Alerting |
+|  APIs | Docker · Compose · Swarm | Traefik · Nginx · Alerting |
 | Automation · CLI tooling | Kubernetes · Ansible | Reverse proxy · Load balancing |
 
 </div>
@@ -60,7 +60,7 @@ I work where **software engineering meets infrastructure**: packaging services, 
 
 </div>
 
-## `$ ls -la ./featured-projects`
+<!-- ## `$ ls -la ./featured-projects`
 
 ### [Production-Grade DevOps Platform](https://hamgit.ir/mhaminii18/task-manager) `2026`
 
@@ -91,22 +91,18 @@ I work where **software engineering meets infrastructure**: packaging services, 
 
 <div align="center">
 
-[![ShopStream repository card](https://github-readme-stats.vercel.app/api/pin/?username=aminio9&repo=shopstream&theme=transparent&hide_border=true&title_color=22d3ee&icon_color=22c55e&text_color=94a3b8)](https://github.com/aminio9/shopstream)
-[![Access Log CLI repository card](https://github-readme-stats.vercel.app/api/pin/?username=aminio9&repo=accesslog-cli&theme=transparent&hide_border=true&title_color=22d3ee&icon_color=22c55e&text_color=94a3b8)](https://github.com/aminio9/accesslog-cli)
+[![ShopStream](https://img.shields.io/badge/ShopStream-15%2B_services-0891B2?style=for-the-badge&logo=docker&logoColor=white)](https://github.com/aminio9/shopstream)
+[![Access Log CLI](https://img.shields.io/badge/Access_Log_CLI-500K_requests-16A34A?style=for-the-badge&logo=python&logoColor=white)](https://github.com/aminio9/accesslog-cli)
 
-</div>
+</div> -->
 
 ## `$ ./observe --engineer aminio9`
 
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=aminio9&show_icons=true&include_all_commits=true&hide_border=true&bg_color=00000000&title_color=22d3ee&icon_color=22c55e&text_color=94a3b8&ring_color=22d3ee" />
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=aminio9&show_icons=true&include_all_commits=true&hide_border=true&bg_color=00000000&title_color=0891b2&icon_color=16a34a&text_color=475569&ring_color=0891b2" alt="Mohammadhassan's GitHub statistics" />
-</picture>
-<picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=aminio9&hide_border=true&background=00000000&ring=22D3EE&fire=22C55E&currStreakLabel=22D3EE&sideLabels=94A3B8&dates=64748B&currStreakNum=E2E8F0&sideNums=E2E8F0" />
-  <img width="49%" src="https://streak-stats.demolab.com?user=aminio9&hide_border=true&background=00000000&ring=0891B2&fire=16A34A&currStreakLabel=0891B2&sideLabels=475569&dates=64748B&currStreakNum=0F172A&sideNums=0F172A" alt="Mohammadhassan's GitHub contribution streak" />
+  <img width="70%" src="https://streak-stats.demolab.com?user=aminio9&hide_border=true&background=00000000&ring=0891B2&fire=16A34A&currStreakLabel=0891B2&sideLabels=475569&dates=64748B&currStreakNum=0F172A&sideNums=0F172A" alt="Mohammadhassan's GitHub contribution streak" />
 </picture>
 
 <picture>
@@ -117,9 +113,9 @@ I work where **software engineering meets infrastructure**: packaging services, 
 ### Contribution stream
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/aminio9/aminio9/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/aminio9/aminio9/output/github-contribution-grid-snake.svg" />
-  <img alt="Animated snake moving through the GitHub contribution grid" src="https://raw.githubusercontent.com/aminio9/aminio9/output/github-contribution-grid-snake.svg" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/aminio9/aminio9/gh-pages/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/aminio9/aminio9/gh-pages/github-contribution-grid-snake.svg" />
+  <img alt="Animated snake moving through the GitHub contribution grid" src="https://raw.githubusercontent.com/aminio9/aminio9/gh-pages/github-contribution-grid-snake.svg" />
 </picture>
 
 </div>
