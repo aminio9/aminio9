@@ -1,0 +1,40 @@
+name: Validate profile
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out profile source
+        uses: actions/checkout@v4
+
+      - name: Verify required profile assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s README.md
+          test -s assets/terminal.svg
+          grep -q 'github.com/aminio9' README.md
+          grep -q 'assets/terminal.svg' README.md
+
+      - name: Parse animated terminal SVG
+        shell: python
+        run: |
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+
+          svg = Path("assets/terminal.svg")
+          ET.parse(svg)
+          text = svg.read_text(encoding="utf-8")
+          assert "animate" in text, "terminal.svg must contain animation"
+          assert "Mohammadhassan Amini" in text, "terminal.svg is missing identity text"
+          print("Profile assets are valid.")
